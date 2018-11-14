@@ -113,13 +113,32 @@ ctrl + c syste
 reboot
 ```
 
-
-
-
-
-
+## Manage Users
 
 ```
+adduser sun
+
+cd /home
+
+deluser sun --remove-home
+
+ServerAliveInterval 120
+ServerAliveCountMax 3
+
+Host my_vps_root
+	HostName 168.235.85.22
+	User root
+	IdentityFile C:\Users\Web\.ssh\my_server
+
+Host my_vps_root
+	HostName 168.235.85.22
+	User dev
+	IdentityFile C:\Users\Web\.ssh\my_server_dev
 
 
+sudo adduser dev sudo
+
+!!
+
+```
 
