@@ -56,6 +56,70 @@ Host my_vps_root
 
 ## Pointing an existing domain to the VPS server
 
-```
+create A record
+create CNMAE record
+
+## Commands
 
 ```
+ls -la
+
+ll
+
+cd -
+
+touch
+
+nano my_file.txt
+
+cat my_file.txt // see the content from command
+
+less my_file.txt // long content // Q to exit
+
+mv my_file.txt / // to root 
+
+mv my_file.txt ~/my_other_file.txt
+
+cp
+
+rm
+
+rm test_*
+```
+
+Directory
+
+```
+mkdir
+
+cp -r dir_1 dir_2
+
+mv
+
+rm -r test
+
+clear
+
+cd
+
+cd / 
+```
+
+ctrl + c syste
+
+## How to restart the server when required
+
+```
+reboot
+```
+
+
+
+
+
+
+
+```
+
+
+
