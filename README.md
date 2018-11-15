@@ -142,3 +142,56 @@ sudo adduser dev sudo
 
 ```
 
+## Firewall
+
+```
+sudo ufw status
+sudo ufw status verbose
+sudo ufw app list
+sudo ufw allow "OpenSSH"
+sudo ufw enable
+
+```
+## Assigning permissions correctrly
+
+```
+sudo chmod -R 777 test/
+sudo chown -R dev test/
+sudo chown -R dev:dev test/
+
+```
+
+## Using Fail2Ban to prevent intruders in the VPS
+
+```
+$ cd /etc/fial2ban
+$ ll
+$ nano jail.conf
+$ nano jail.local
+[DEFAULT]
+bantime = 3h
+maxretry = 3
+
+[sshd]
+enabled = true
+
+sudo systemctl restart fail2ban.service
+sudo fail2ban-client status
+sudo fail2ban-client status sshd
+
+```
+
+## Nginx
+
+```
+sudo ufw allow 'Nginx Full'
+
+```
+check domain.com
+
+## Location of Nginx and its important files
+
+```
+$ cd /etc/nginx/
+$ nano nginx.conf
+```
