@@ -417,3 +417,49 @@ sudo nginx -t
 sudo systemctl reload nginx.service
 
 ```
+
+## Preventing Nginx sites from being hijacked ******
+
+```
+sudo nano /etc/nginx/sites-available/sitename.com.conf
+	server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        return 301 https://hairstylist.cc;
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+
+sudo nginx -t
+sudo systemctl reload nginx.service
+```
+
+## Useful Tools
+
+composer
+```
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '93b54496392c062774670ac18b134c3b3a95e5a5e5c8f1a9f115f203b75bf9a129d5daa8ba6a13e2cc8a1da0806388a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+mv composer.phar /usr/local/bin/composer
+cd /
+composer
+cd /var/www/
+composer
+
+composer self-update // update automatically
+```
+
+## SSH connection 
+
+create key - root usr only
+```
+# ssh-keygen
+
+# eval $(ssh-agent -s)
+```
