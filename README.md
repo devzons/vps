@@ -462,4 +462,68 @@ create key - root usr only
 # ssh-keygen
 
 # eval $(ssh-agent -s)
+# cd /root/.ssh/
+# ssh-add id_rsa
+# cat id_rsa.pub // copy key to github
+# ssh -T git@github.com // to check the git connection
+# exit
+
+$ sudo ssh -T git@github.com // for current sudo user
+```
+
+## Installing additional PHP extensions
+
+```
+sudo apt update
+sudo pat install php-mysql php-curl php-gd php-mbstrings php-xml php-xmlrpc php-zip
+```
+
+## Install Wordpress
+
+```
+cd /var/www/blog.sitename.com/
+ll
+sudo rm *
+sudo wget https://wordpress.org/latest.tar.gz
+sudo tar -xf latest.tar.gz --strip-components=1
+ll
+sueo rm latest.tar.gz
+ll
+cd ..
+sudo chown -R www-data:www-data blog.sitename.com/
+sudo find /var/www/blog.sitename.com -type d -exec chmod g+s {} \;
+sudo chmod g+w /var/www/blog.sitename.com/wp-content
+
+sudo chmod -R g+w /var/www/blog.sitename.com/wp-content/themes
+sudo chmod -R g+w /var/www/blog.sitename.com/wp-content/plugins
+
+```
+
+## Laravel project
+
+https://github.com/JuanDMeGon/RESTful-API-with-Laravel-Definitive-Guide.git
+
+```
+sudo git clone https://github.com/JuanDMeGon/RESTful-API-with-Laravel-Definitive-Guide.git api.sitename.com/
+
+cd api.sitename.com
+sudo composer install --no-dev
+cd public/
+sudo nano /etc/nginx/sites-available/api.sitename.com
+	/var/www/api.sitename.com/public
+	try_files $uri $uri/ /index.php?$query_string;
+
+sudo cp .env.example .env
+sudo nano .env
+	change accordingly
+sudo php artisan key:generate
+sudo nano .env
+sudo chown -R www-data:www-data storage/
+sudo chown -R www-data:www-data bootstrap/cache/
+
+sudo php artisan migrate
+sudo php artisan route:list
+
+sudo php artisan passport:install
+sudo php artisan route:list
 ```
